@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar"/>
+
+        <!-- Corrected style definition -->
+        <style name="AppTheme.SeekBarStyle" parent="@android:style/Widget.SeekBar">
+            <item name="colorControlNormal">#C724B1</item> <!-- Change to your desired color -->
+
+        </style>
+
+
+</resources>

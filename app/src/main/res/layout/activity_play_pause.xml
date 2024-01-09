@@ -14,8 +14,8 @@
         android:layout_height="389dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="33dp"
-        android:layout_marginBottom="317dp"
+        android:layout_marginEnd="42dp"
+        android:layout_marginBottom="341dp"
         app:srcCompat="@drawable/logo" />
 
     <RelativeLayout
@@ -27,24 +27,25 @@
 
         <ImageView
             android:id="@+id/imageView6"
-            android:layout_width="113dp"
-            android:layout_height="110dp"
+            android:layout_width="110dp"
+            android:layout_height="101dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentRight="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginStart="282dp"
-            android:layout_marginRight="16dp"
-            android:layout_marginBottom="35dp"
+            android:layout_marginStart="277dp"
+            android:layout_marginRight="24dp"
+            android:layout_marginBottom="22dp"
             app:srcCompat="@drawable/baseline_skip_next_24" />
+
 
         <ImageView
             android:id="@+id/imageView8"
-            android:layout_width="113dp"
-            android:layout_height="110dp"
+            android:layout_width="103dp"
+            android:layout_height="100dp"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginEnd="286dp"
-            android:layout_marginBottom="33dp"
+            android:layout_marginEnd="288dp"
+            android:layout_marginBottom="24dp"
             app:srcCompat="@drawable/baseline_skip_previous_24" />
 
         <ImageView
@@ -53,16 +54,18 @@
             android:layout_height="110dp"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginEnd="131dp"
-            android:layout_marginBottom="36dp"
+            android:layout_marginEnd="143dp"
+            android:layout_marginBottom="19dp"
             app:srcCompat="@drawable/baseline_play_arrow_24" />
 
         <SeekBar
-            android:id="@+id/seekBar"
-            android:layout_width="117dp"
-            android:layout_height="39dp"
-            android:layout_marginEnd="294dp"
-            android:layout_marginBottom="-56dp" />
+            android:id="@+id/mySeekBar"
+
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:max="100"
+            android:progress="50"
+        />
 
     </RelativeLayout>
 
@@ -106,26 +109,8 @@
         android:layout_marginBottom="68dp"
         app:srcCompat="@drawable/baseline_repeat_24" />
 
-    <ImageView
-        android:id="@+id/imageView14"
-        android:layout_width="78dp"
-        android:layout_height="78dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="331dp"
-        android:layout_marginBottom="685dp"
-        app:srcCompat="@drawable/baseline_arrow_drop_down_24" />
 
-    <ImageView
-        android:id="@+id/imageView15"
-        android:layout_width="40dp"
-        android:layout_height="58dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="900dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="700dp"
-        app:srcCompat="@drawable/baseline_menu_24" />
+
+
 
 </RelativeLayout>
