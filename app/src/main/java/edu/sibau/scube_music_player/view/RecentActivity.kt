@@ -3,7 +3,6 @@ package edu.sibau.scube_music_player.view
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import edu.sibau.scube_music_player.R
-import edu.sibau.scube_music_player.databinding.ActivityPlaylistsBinding
 import edu.sibau.scube_music_player.databinding.ActivityRecentBinding
 
 class RecentActivity : AppCompatActivity() {
