@@ -35,6 +35,7 @@
             android:text="@string/song_title"
             android:textStyle="bold"
             android:textSize="24sp"
+            android:textColor="@color/black"
             android:paddingHorizontal="8dp"
             android:gravity="start|center_vertical"
             />
