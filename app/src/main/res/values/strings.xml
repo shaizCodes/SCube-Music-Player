@@ -1,3 +1,20 @@
 <resources>
     <string name="app_name">S<sup>3</sup> Music Player</string>
+    <string name="song_title">Song Title</string>
+    <string name="song_description">Song Description</string>
+    <string name="cursor_position">00:00</string>
+    <string name="btn_recent">Recent</string>
+    <string name="btn_favorites">Favorites</string>
+    <string name="btn_playlist">Playlist</string>
+    <string name="txt_songs">List of songs</string>
+    <string name="btn_back">Back to Songs</string>
+    <string name="btn_options">Song Options</string>
+    <string name="btn_next">Next Song</string>
+    <string name="btn_play">Play Song</string>
+    <string name="btn_previous">Previous Song</string>
+    <string name="btn_repeat">Repeat current song</string>
+    <string name="btn_move">Move current song</string>
+    <string name="btn_add_favorite">Add current song to favorite playlist</string>
+    <string name="btn_details">Song details</string>
+    <string name="btn_share">Share current song</string>
 </resources>
