@@ -24,6 +24,8 @@ class MainActivity : AppCompatActivity() {
         binding.btnRecent.setOnClickListener { dummyMessage() }
         binding.btnFavorites.setOnClickListener { dummyMessage() }
         binding.btnPlaylist.setOnClickListener { dummyMessage() }
+        binding.songTitle.setOnClickListener { openPlayer() }
+        binding.songDescription.setOnClickListener { openPlayer() }
         binding.songThumbnail.setOnClickListener { openPlayer() }
         binding.btnPrevious.setOnClickListener { dummyMessage() }
         binding.btnPlay.setOnClickListener { dummyMessage() }

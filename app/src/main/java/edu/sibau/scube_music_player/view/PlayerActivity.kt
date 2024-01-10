@@ -2,10 +2,6 @@ package edu.sibau.scube_music_player.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.MenuItem
-import android.view.View
-import android.widget.Toast
-import androidx.core.app.NavUtils
 import edu.sibau.scube_music_player.R
 import edu.sibau.scube_music_player.databinding.ActivityPlayerBinding
 
