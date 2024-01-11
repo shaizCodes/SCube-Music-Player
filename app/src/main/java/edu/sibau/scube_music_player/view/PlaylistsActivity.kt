@@ -17,6 +17,11 @@ class PlaylistsActivity : AppCompatActivity() {
 
         binding.btnBack.setOnClickListener { backToMainActivity() }
         binding.btnOptions.setOnClickListener { dummyText() }
+
+        binding.songTitle.setOnClickListener { openPlayer() }
+        binding.songDescription.setOnClickListener { openPlayer() }
+        binding.songThumbnail.setOnClickListener { openPlayer() }
+
         binding.btnPrevious.setOnClickListener { dummyText() }
         binding.btnPlay.setOnClickListener { dummyText() }
         binding.btnNext.setOnClickListener { dummyText() }
@@ -31,4 +36,10 @@ class PlaylistsActivity : AppCompatActivity() {
         val intent = Intent(this@PlaylistsActivity, MainActivity::class.java)
         startActivity(intent)
     }
+
+    private fun openPlayer() {
+        val intent = Intent(this@PlaylistsActivity, PlayerActivity::class.java)
+        startActivity(intent)
+    }
+
 }

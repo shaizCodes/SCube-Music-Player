@@ -17,10 +17,20 @@ class RecentActivity : AppCompatActivity() {
 
         binding.btnBack.setOnClickListener { backToMainActivity() }
         binding.btnOptions.setOnClickListener { dummyText() }
+
+        binding.songTitle.setOnClickListener { openPlayer() }
+        binding.songDescription.setOnClickListener { openPlayer() }
+        binding.songThumbnail.setOnClickListener { openPlayer() }
+
         binding.btnPrevious.setOnClickListener { dummyText() }
         binding.btnPlay.setOnClickListener { dummyText() }
         binding.btnNext.setOnClickListener { dummyText() }
         // Write Event Listeners for RecyclerView Items as well
+    }
+
+    private fun openPlayer() {
+        val intent = Intent(this@RecentActivity, PlayerActivity::class.java)
+        startActivity(intent)
     }
 
     private fun dummyText() {
