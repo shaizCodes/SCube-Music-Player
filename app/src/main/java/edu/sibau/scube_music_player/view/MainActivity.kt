@@ -61,15 +61,30 @@ class MainActivity : AppCompatActivity() {
             }
             true
         }
-        binding.btnRecent.setOnClickListener { dummyMessage() }
-        binding.btnFavorites.setOnClickListener { dummyMessage() }
-        binding.btnPlaylist.setOnClickListener { dummyMessage() }
+        binding.btnRecent.setOnClickListener { openRecent() }
+        binding.btnFavorites.setOnClickListener { openFavorites() }
+        binding.btnPlaylist.setOnClickListener { openPlaylists() }
         binding.songTitle.setOnClickListener { openPlayer() }
         binding.songDescription.setOnClickListener { openPlayer() }
         binding.songThumbnail.setOnClickListener { openPlayer() }
         binding.btnPrevious.setOnClickListener { dummyMessage() }
         binding.btnPlay.setOnClickListener { dummyMessage() }
         binding.btnNext.setOnClickListener { dummyMessage() }
+    }
+
+    private fun openRecent() {
+        val intent = Intent(this@MainActivity, RecentActivity::class.java)
+        startActivity(intent)
+    }
+
+    private fun openFavorites() {
+        val intent = Intent(this@MainActivity, FavoritesActivity::class.java)
+        startActivity(intent)
+    }
+
+    private fun openPlaylists() {
+        val intent = Intent(this@MainActivity, PlaylistsActivity::class.java)
+        startActivity(intent)
     }
 
     private fun openPlayer() {

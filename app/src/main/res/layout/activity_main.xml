@@ -30,7 +30,7 @@
                 android:layout_weight="1"
                 android:drawableTop="@drawable/recent_icon"
                 android:text="@string/btn_recent"
-                android:contentDescription="@string/btn_recent"
+                android:contentDescription="@string/dsc_recent"
                 android:textAllCaps="false"
                 android:textColor="@color/black"
                 />
@@ -42,7 +42,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="@string/btn_favorites"
-                android:contentDescription="@string/btn_favorites"
+                android:contentDescription="@string/dsc_favorites"
                 android:drawableTop="@drawable/favorites_icon"
                 android:textAllCaps="false"
                 android:textColor="@color/black" />
@@ -54,7 +54,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="@string/btn_playlist"
-                android:contentDescription="@string/btn_playlist"
+                android:contentDescription="@string/dsc_playlist"
                 android:drawableTop="@drawable/playlist_icon"
                 android:textAllCaps="false"
                 android:textColor="@color/black" />
@@ -75,8 +75,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:layout_marginHorizontal="16dp"
-            android:padding="8dp" />
+            />
 
         <LinearLayout
             android:id="@+id/bottom_bar"
@@ -115,7 +114,7 @@
                     android:id="@+id/song_title"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:paddingStart="10dp"
+                    android:paddingStart="4dp"
                     android:text="@string/song_title"
                     android:gravity="start|center_vertical"
                     android:textStyle="bold"
@@ -128,7 +127,7 @@
                     android:id="@+id/song_description"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:paddingStart="10dp"
+                    android:paddingStart="4dp"
                     android:background="@color/background"
                     android:backgroundTint="@color/background"
                     android:gravity="start|center_vertical"

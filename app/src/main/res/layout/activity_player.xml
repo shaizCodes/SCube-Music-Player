@@ -44,7 +44,7 @@
             android:layout_width="64dp"
             android:layout_height="match_parent"
             android:src="@drawable/options_icon"
-            android:contentDescription="@string/btn_options"
+            android:contentDescription="@string/btn_song_options"
             android:background="@color/background"
             android:backgroundTint="@color/background" />
 

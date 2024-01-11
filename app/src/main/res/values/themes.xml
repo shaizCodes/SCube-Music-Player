@@ -1,6 +1,7 @@
 <resources>
     <!-- Base application theme. -->
     <style name="Theme.SCubeMusicPlayer" parent="Theme.MaterialComponents.DayNight.DarkActionBar" />
+    <style name="Theme.SCubeMusicPlayer_NoActionBar" parent="Theme.MaterialComponents.DayNight.NoActionBar" />
     
     <style name="SplashScreen" parent="Theme.MaterialComponents.Light.NoActionBar">
         <item name="android:windowBackground">@drawable/splash_screen</item>
