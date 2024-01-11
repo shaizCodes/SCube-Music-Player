@@ -54,6 +54,7 @@ class MainActivity : AppCompatActivity() {
 
         binding.navigation.setNavigationItemSelectedListener{
             when(it.itemId){
+                R.id.item_sign_in -> dummyMessage()
                 R.id.item_settings -> dummyMessage()
                 R.id.item_about -> dummyMessage()
                 R.id.item_exit -> exitProcess(1)

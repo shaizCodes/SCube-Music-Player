@@ -89,15 +89,18 @@
 
             <ImageButton
                 android:id="@+id/song_thumbnail"
+                style="@android:style/Widget.Material.ImageButton"
                 android:layout_width="54dp"
-                android:layout_height="match_parent"
+                android:layout_height="54dp"
                 android:layout_marginStart="16dp"
                 android:background="@color/background"
                 android:backgroundTint="@color/background"
                 android:contentDescription="@string/song_title"
                 android:foregroundTint="@color/background"
-                android:src="@mipmap/s3_music_player_icon_round"
-                tools:ignore="DuplicateSpeakableTextCheck" />
+                android:scaleType="centerCrop"
+                android:src="@drawable/splash_screen"
+                tools:ignore="DuplicateSpeakableTextCheck"
+                tools:src="@drawable/splash_screen" />
 
             <LinearLayout
                 android:layout_width="0dp"
@@ -112,30 +115,34 @@
                     android:id="@+id/song_title"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:paddingStart="10dp"
                     android:text="@string/song_title"
                     android:gravity="start|center_vertical"
                     android:textStyle="bold"
                     android:textSize="18sp"
                     android:background="@color/background"
                     android:backgroundTint="@color/background"
-                    />
+                    tools:ignore="RtlSymmetry" />
 
                 <TextView
                     android:id="@+id/song_description"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:paddingStart="10dp"
                     android:background="@color/background"
                     android:backgroundTint="@color/background"
                     android:gravity="start|center_vertical"
                     android:text="@string/song_title"
                     android:textColor="#000000"
-                    android:textSize="14sp" />
+                    android:textSize="14sp"
+                    tools:ignore="RtlSymmetry" />
             </LinearLayout>
 
             <ImageButton
                 android:id="@+id/btn_previous"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:paddingHorizontal="10dp"
                 android:background="@color/background"
                 android:backgroundTint="@color/background"
                 android:contentDescription="@string/btn_previous"
@@ -146,6 +153,7 @@
                 android:id="@+id/btn_play"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:paddingHorizontal="10dp"
                 android:background="@color/background"
                 android:backgroundTint="@color/background"
                 android:contentDescription="@string/btn_play"
@@ -157,6 +165,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_marginEnd="16dp"
+                android:paddingHorizontal="10dp"
                 android:background="@color/background"
                 android:backgroundTint="@color/background"
                 android:contentDescription="@string/btn_next"

@@ -34,10 +34,9 @@
             android:layout_weight="1"
             android:text="@string/song_title"
             android:textStyle="bold"
-            android:textSize="24sp"
+            android:textSize="20sp"
             android:textColor="@color/black"
-            android:paddingHorizontal="8dp"
-            android:gravity="start|center_vertical"
+            android:gravity="center"
             />
 
         <ImageButton
@@ -61,6 +60,7 @@
         android:contentDescription="@string/song_title"
         android:background="@color/background"
         android:backgroundTint="@color/background"
+        android:scaleType="centerCrop"
         />
 
     <LinearLayout
