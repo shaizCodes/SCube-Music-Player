@@ -31,6 +31,10 @@ It is an Android application developed as part of the Mobile Application Develop
     ![Player Activity](./images/PlayerActivity.png)
 - Details Activity
     ![Details Activity](./images/DetailsActivity.png)
+- Playlist Activity
+    ![Playlist Activity](./images/PlaylistActivity.png)
+- Favorites Activity
+    ![Favorites Activity](./images/FavoritesActivity.png)
 
 ## Getting Started
 
