@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">S<sup>3</sup> Music Player</string>
+    <string name="app_name">SCube Music Player</string>
     <string name="song_title">Song Title</string>
     <string name="song_description">Song Description</string>
     <string name="cursor_position">00:00</string>
