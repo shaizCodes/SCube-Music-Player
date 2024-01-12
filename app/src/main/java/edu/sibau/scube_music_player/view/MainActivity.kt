@@ -10,6 +10,7 @@ import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Log
 import android.view.MenuItem
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.app.ActivityCompat.*
@@ -27,7 +28,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var songsAdapter: SongsAdapter
 
     companion object{
-        private lateinit var songsList : ArrayList<Song>
+        lateinit var songsList : ArrayList<Song>
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -68,12 +69,18 @@ class MainActivity : AppCompatActivity() {
 //        songsList.add(song)
 
         // Comment these two lines when working on emulator, else download some music files in emulator
-        songsList = retrieveSongs()
-        Log.i("RECEIVED: ", songsList.joinToString(", "))
-
-        songsAdapter = SongsAdapter(this@MainActivity, songsList)
-        binding.songsList.adapter = songsAdapter
-
+        if(checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED){
+            songsList = retrieveSongs()
+            songsAdapter = SongsAdapter(this@MainActivity, songsList)
+            binding.songsList.adapter = songsAdapter
+            Log.i("PERMISSION", "Songs")
+        }
+        else{
+            binding.songsList.visibility = View.INVISIBLE
+        }
+        if(songsList.isEmpty()){
+            binding.bottomBar.visibility = View.INVISIBLE
+        }
         binding.navigation.setNavigationItemSelectedListener{
             when(it.itemId){
                 R.id.item_sign_in -> dummyMessage()

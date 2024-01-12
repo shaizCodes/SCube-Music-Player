@@ -2,8 +2,10 @@ package edu.sibau.scube_music_player.view
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
@@ -19,6 +21,7 @@ class SongsAdapter(private val context: Context, private val songs: ArrayList<So
                 val title = binding.songTitle
                 val description = binding.songDescription
                 val thumbnail = binding.songThumbnail
+                val root = binding.root
         }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -33,6 +36,12 @@ class SongsAdapter(private val context: Context, private val songs: ArrayList<So
             .load(songs[position].artUri)
             .apply(RequestOptions().placeholder(R.drawable.splash_screen).centerCrop())
             .into(holder.thumbnail)
+        holder.root.setOnClickListener {
+            val intent = Intent(context, PlayerActivity::class.java)
+            intent.putExtra("index", position)
+            intent.putExtra("class", "MainActivity")
+            ContextCompat.startActivity(context, intent, null)
+        }
     }
 
     override fun getItemCount(): Int {
