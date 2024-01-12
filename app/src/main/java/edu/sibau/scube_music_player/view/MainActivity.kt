@@ -2,7 +2,6 @@ package edu.sibau.scube_music_player.view
 
 import android.Manifest
 import android.annotation.SuppressLint
-import android.content.ContentUris
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
@@ -49,25 +48,28 @@ class MainActivity : AppCompatActivity() {
         binding.songsList.setItemViewCacheSize(15)
         binding.songsList.layoutManager = LinearLayoutManager(this@MainActivity)
 
+        // Uncomment these lines when running app on an emulator to fill recyclerView with dummy data
+//        val song = Song(id="123221", title="Mockingbird", artist="Eminem", album="N/A", duration=213, path="N/A", artUri="N/A")
+//        songsList = ArrayList<Song>()
+//        songsList.add(song)
+//        songsList.add(song)
+//        songsList.add(song)
+//        songsList.add(song)
+//        songsList.add(song)
+//        songsList.add(song)
+//        songsList.add(song)
+//        songsList.add(song)
+//        songsList.add(song)
+//        songsList.add(song)
+//        songsList.add(song)
+//        songsList.add(song)
+//        songsList.add(song)
+//        songsList.add(song)
+//        songsList.add(song)
+
+        // Comment these two lines when working on emulator, else download some music files in emulator
         songsList = retrieveSongs()
         Log.i("RECEIVED: ", songsList.joinToString(", "))
-
-//        val song = Song(id=1, title="Mockingbird", artist="Eminem", album="N/A", duration=213, path="N/A", artUri="N/A")
-//        songsList.add(song)
-//        songsList.add(song)
-//        songsList.add(song)
-//        songsList.add(song)
-//        songsList.add(song)
-//        songsList.add(song)
-//        songsList.add(song)
-//        songsList.add(song)
-//        songsList.add(song)
-//        songsList.add(song)
-//        songsList.add(song)
-//        songsList.add(song)
-//        songsList.add(song)
-//        songsList.add(song)
-//        songsList.add(song)
 
         songsAdapter = SongsAdapter(this@MainActivity, songsList)
         binding.songsList.adapter = songsAdapter
@@ -171,7 +173,7 @@ class MainActivity : AppCompatActivity() {
         if(cursor != null){
             if(cursor.moveToFirst()){
                 do {
-                    val id = cursor.getInt(cursor.getColumnIndex(MediaStore.Audio.Media._ID))
+                    val id = cursor.getString(cursor.getColumnIndex(MediaStore.Audio.Media._ID))
                     val title = cursor.getString(cursor.getColumnIndex(MediaStore.Audio.Media.TITLE))
                     val artist = cursor.getString(cursor.getColumnIndex(MediaStore.Audio.Media.ARTIST))
                     val album = cursor.getString(cursor.getColumnIndex(MediaStore.Audio.Media.ALBUM))
@@ -179,17 +181,15 @@ class MainActivity : AppCompatActivity() {
                     val duration = cursor.getLong(cursor.getColumnIndex(MediaStore.Audio.Media.DURATION))
                     val data = cursor.getString(cursor.getColumnIndex(MediaStore.Audio.Media.DATA))
                     val dateAdded = cursor.getString(cursor.getColumnIndex(MediaStore.Audio.Media.DATE_ADDED))
-                    val externalContentUri = MediaStore.Audio.Media.EXTERNAL_CONTENT_URI
-                    val songUri = ContentUris.withAppendedId(externalContentUri, id.toLong())
-                    val artUri = Uri.withAppendedPath(songUri, "albumart").toString()
-                    val path = songUri.toString()
-                    val song = Song(id=id, title=title, artist=artist, album=album, duration=duration, path=path, artUri=artUri)
+                    val uri = Uri.parse("content://media/external/audio/albumart")
+                    val artUri = Uri.withAppendedPath(uri, albumId).toString()
+                    val song = Song(id=id, title=title, artist=artist, album=album, duration=duration, path=data, artUri=artUri)
                     val file = File(song.path)
                     if(file.exists()) {
                         Log.i("TEST", "FILE EXISTS")
                         songs.add(song)
                     }
-//                     Log.i("TEST", songs.joinToString(separator = "]"))
+                     Log.i("TEST *", songs.joinToString(separator = "]"))
                 }while(cursor.moveToNext())
                 cursor.close()
             }

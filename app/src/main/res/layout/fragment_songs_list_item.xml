@@ -20,17 +20,19 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:orientation="vertical"
-        android:paddingVertical="8sp">
+        android:paddingStart="8sp"
+        android:paddingVertical="8sp"
+        tools:ignore="RtlSymmetry">
         <TextView
             android:id="@+id/song_title"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:textAppearance="?attr/textAppearanceListItem"
             android:textStyle="bold"
-            android:textColor="@color/material_dynamic_neutral_variant30"
             android:textSize="14sp"
             android:text="@string/song_title"
-            android:singleLine="true"/>
+            android:singleLine="true"
+            />
 
         <TextView
             android:id="@+id/song_description"

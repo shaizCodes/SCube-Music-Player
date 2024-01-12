@@ -21,15 +21,14 @@ class SongsAdapter(private val context: Context, private val songs: ArrayList<So
                 val thumbnail = binding.songThumbnail
         }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SongsAdapter.ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(FragmentSongsListItemBinding.inflate(LayoutInflater.from(context), parent, false))
     }
 
     @SuppressLint("SetTextI18n")
-    override fun onBindViewHolder(holder: SongsAdapter.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.title.text = songs[position].title
         holder.description.text = songs[position].artist + " - " + songs[position].album
-//        holder.thumbnail.setImageDrawable(songs[position].path)
         Glide.with(context)
             .load(songs[position].artUri)
             .apply(RequestOptions().placeholder(R.drawable.splash_screen).centerCrop())
