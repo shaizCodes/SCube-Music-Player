@@ -33,8 +33,7 @@ class PlayerActivity : AppCompatActivity() {
     }
 
     private fun backToMainActivity() {
-        val intent = Intent(this@PlayerActivity, MainActivity::class.java)
-        startActivity(intent)
+        finish()
     }
 
     fun addToFavorites() {

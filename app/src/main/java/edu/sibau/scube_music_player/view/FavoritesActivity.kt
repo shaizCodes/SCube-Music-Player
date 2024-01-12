@@ -31,6 +31,8 @@ class FavoritesActivity : AppCompatActivity() {
     private fun openPlayer() {
         val intent = Intent(this@FavoritesActivity, PlayerActivity::class.java)
         startActivity(intent)
+        // Delete it once you write code to minimize the player activity
+        finish()
     }
 
     private fun dummyText() {
@@ -38,7 +40,6 @@ class FavoritesActivity : AppCompatActivity() {
     }
 
     private fun backToMainActivity() {
-        val intent = Intent(this@FavoritesActivity, MainActivity::class.java)
-        startActivity(intent)
+        finish()
     }
 }

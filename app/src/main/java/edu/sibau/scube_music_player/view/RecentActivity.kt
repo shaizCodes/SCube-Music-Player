@@ -31,6 +31,7 @@ class RecentActivity : AppCompatActivity() {
     private fun openPlayer() {
         val intent = Intent(this@RecentActivity, PlayerActivity::class.java)
         startActivity(intent)
+        finish()
     }
 
     private fun dummyText() {
@@ -38,7 +39,6 @@ class RecentActivity : AppCompatActivity() {
     }
 
     private fun backToMainActivity() {
-        val intent = Intent(this@RecentActivity, MainActivity::class.java)
-        startActivity(intent)
+        finish()
     }
 }

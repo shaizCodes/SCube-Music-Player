@@ -2,14 +2,15 @@ package edu.sibau.scube_music_player.view
 
 import android.Manifest
 import android.annotation.SuppressLint
+import android.content.ContentUris
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
+import android.util.Log
 import android.view.MenuItem
-import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.app.ActivityCompat.*
@@ -27,7 +28,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var songsAdapter: SongsAdapter
 
     companion object{
-        lateinit var songsList : ArrayList<Song>
+        private lateinit var songsList : ArrayList<Song>
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -48,9 +49,28 @@ class MainActivity : AppCompatActivity() {
         binding.songsList.setItemViewCacheSize(15)
         binding.songsList.layoutManager = LinearLayoutManager(this@MainActivity)
 
-        val songs = retrieveSongs()
+        songsList = retrieveSongs()
+        Log.i("RECEIVED: ", songsList.joinToString(", "))
 
-        binding.songsList.adapter = SongsAdapter(this@MainActivity, songs)
+//        val song = Song(id=1, title="Mockingbird", artist="Eminem", album="N/A", duration=213, path="N/A", artUri="N/A")
+//        songsList.add(song)
+//        songsList.add(song)
+//        songsList.add(song)
+//        songsList.add(song)
+//        songsList.add(song)
+//        songsList.add(song)
+//        songsList.add(song)
+//        songsList.add(song)
+//        songsList.add(song)
+//        songsList.add(song)
+//        songsList.add(song)
+//        songsList.add(song)
+//        songsList.add(song)
+//        songsList.add(song)
+//        songsList.add(song)
+
+        songsAdapter = SongsAdapter(this@MainActivity, songsList)
+        binding.songsList.adapter = songsAdapter
 
         binding.navigation.setNavigationItemSelectedListener{
             when(it.itemId){
@@ -135,8 +155,10 @@ class MainActivity : AppCompatActivity() {
             MediaStore.Audio.Media.TITLE,
             MediaStore.Audio.Media.ARTIST,
             MediaStore.Audio.Media.ALBUM,
+            MediaStore.Audio.Media.ALBUM_ID,
             MediaStore.Audio.Media.DURATION,
-            MediaStore.Audio.Media.DATE_ADDED
+            MediaStore.Audio.Media.DATA,
+            MediaStore.Audio.Media.DATE_ADDED,
             )
         val cursor = this.contentResolver.query(
             MediaStore.Audio.Media.EXTERNAL_CONTENT_URI,
@@ -149,22 +171,30 @@ class MainActivity : AppCompatActivity() {
         if(cursor != null){
             if(cursor.moveToFirst()){
                 do {
-                    val id = cursor.getString(cursor.getColumnIndex(MediaStore.Audio.Media._ID))
+                    val id = cursor.getInt(cursor.getColumnIndex(MediaStore.Audio.Media._ID))
                     val title = cursor.getString(cursor.getColumnIndex(MediaStore.Audio.Media.TITLE))
+                    val artist = cursor.getString(cursor.getColumnIndex(MediaStore.Audio.Media.ARTIST))
                     val album = cursor.getString(cursor.getColumnIndex(MediaStore.Audio.Media.ALBUM))
                     val albumId = cursor.getString(cursor.getColumnIndex(MediaStore.Audio.Media.ALBUM_ID))
-                    val artist = cursor.getString(cursor.getColumnIndex(MediaStore.Audio.Media.ARTIST))
                     val duration = cursor.getLong(cursor.getColumnIndex(MediaStore.Audio.Media.DURATION))
-                    val path = cursor.getString(cursor.getColumnIndex(MediaStore.Audio.Media.DATA))
-                    val uri = Uri.parse("content://media//external/audio/albumart")
-                    val artUri = Uri.withAppendedPath(uri, albumId).toString()
+                    val data = cursor.getString(cursor.getColumnIndex(MediaStore.Audio.Media.DATA))
+                    val dateAdded = cursor.getString(cursor.getColumnIndex(MediaStore.Audio.Media.DATE_ADDED))
+                    val externalContentUri = MediaStore.Audio.Media.EXTERNAL_CONTENT_URI
+                    val songUri = ContentUris.withAppendedId(externalContentUri, id.toLong())
+                    val artUri = Uri.withAppendedPath(songUri, "albumart").toString()
+                    val path = songUri.toString()
                     val song = Song(id=id, title=title, artist=artist, album=album, duration=duration, path=path, artUri=artUri)
                     val file = File(song.path)
-                    if(file.exists()) { songs.add(song) }
+                    if(file.exists()) {
+                        Log.i("TEST", "FILE EXISTS")
+                        songs.add(song)
+                    }
+//                     Log.i("TEST", songs.joinToString(separator = "]"))
                 }while(cursor.moveToNext())
                 cursor.close()
             }
         }
+        Log.i("RETURN: ", songs.joinToString(separator = ", "))
         return songs
     }
 }

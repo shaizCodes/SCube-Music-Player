@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="horizontal"
     android:gravity="center_vertical">
 
@@ -10,7 +11,7 @@
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:contentDescription="@string/song_title"
-        android:src="@mipmap/s3_music_player_icon"
+        android:src="@mipmap/launcher_icon_round"
         android:layout_marginStart="8dp"
         android:scaleType="centerCrop"/>
 
@@ -26,7 +27,8 @@
             android:layout_height="match_parent"
             android:textAppearance="?attr/textAppearanceListItem"
             android:textStyle="bold"
-            android:textSize="20sp"
+            android:textColor="@color/material_dynamic_neutral_variant30"
+            android:textSize="14sp"
             android:text="@string/song_title"
             android:singleLine="true"/>
 
@@ -36,7 +38,7 @@
             android:layout_height="match_parent"
             android:textAppearance="?attr/textAppearanceListItem"
             android:text="@string/song_description"
-            android:textSize="14sp"
+            android:textSize="11sp"
             android:singleLine="true"/>
     </LinearLayout>
 

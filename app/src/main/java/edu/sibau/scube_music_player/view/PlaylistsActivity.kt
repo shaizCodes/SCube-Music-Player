@@ -33,13 +33,13 @@ class PlaylistsActivity : AppCompatActivity() {
     }
 
     private fun backToMainActivity() {
-        val intent = Intent(this@PlaylistsActivity, MainActivity::class.java)
-        startActivity(intent)
+        finish()
     }
 
     private fun openPlayer() {
         val intent = Intent(this@PlaylistsActivity, PlayerActivity::class.java)
         startActivity(intent)
+        finish()
     }
 
 }

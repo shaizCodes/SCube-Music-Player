@@ -1,7 +1,7 @@
 package edu.sibau.scube_music_player.model
 
 data class Song(
-    val id : String,
+    val id : Int,
     val title : String,
     val artist : String,
     val album : String,
@@ -9,5 +9,14 @@ data class Song(
     val path : String,
     val artUri : String
 ){
-
+    override fun toString(): String {
+        return super.toString()+
+                "\nID: "+id+
+                "\nTITLE: "+title+
+                "\nARTIST: "+artist+
+                "\nALBUM: "+album+
+                "\nDURATION: "+duration+
+                "\nPATH: "+path+
+                "\nART URI: "+artUri
+    }
 }

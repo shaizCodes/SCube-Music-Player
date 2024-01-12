@@ -11,7 +11,7 @@
     <ImageView
         android:layout_width="54dp"
         android:layout_height="54dp"
-        android:src="@drawable/splash_screen"
+        android:src="@mipmap/launcher_icon_round"
         android:contentDescription="@string/app_name" />
     <TextView
         android:layout_width="match_parent"
